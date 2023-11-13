@@ -14,7 +14,7 @@ export default function YouMayAlsoLike({ profile_featureData }) {
             Profile_Feature.slice(0, 5).map((profile, i) => {
               return (
                 <Link
-                  href={`/${profile.category.name
+                  href={`/profiles/${profile.category.name
                     .toLowerCase()
                     .replace(/ /g, "-")}=${profile.category.id}/${profile.name
                     .toLowerCase()

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import AltImage from "@/public/assets/placeholder_infokidunya.webp";
 
 export default function LatestProfiles({ latest_profileData }) {
-  const Latest_Profile = latest_profileData ? latest_profileData : "N/A";
+  const Latest_Profile = latest_profileData ? latest_profileData : [];
 
   const [displayedCardCount, setDisplayedCardCount] = useState(8);
   const loadMoreCards = () => {
@@ -14,11 +14,11 @@ export default function LatestProfiles({ latest_profileData }) {
     <>
       <div>
         <div className="flex flex-wrap justify-center items-center -m-2">
-          {Array.isArray(Latest_Profile) &&
+          {Array.isArray(Latest_Profile) && Latest_Profile.length > 0 ? (
             Latest_Profile.slice(0, displayedCardCount).map((profile, i) => {
               return (
                 <Link
-                  href={`/${profile.category.name
+                  href={`/profiles/${profile.category.name
                     .toLowerCase()
                     .replace(/ /g, "-")}=${profile.category.id}/${profile.name
                     .toLowerCase()
@@ -44,7 +44,10 @@ export default function LatestProfiles({ latest_profileData }) {
                   </div>
                 </Link>
               );
-            })}
+            })
+          ) : (
+            <div>No Data Found</div>
+          )}
         </div>
 
         {displayedCardCount < Latest_Profile.length && (

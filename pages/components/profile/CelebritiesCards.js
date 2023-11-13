@@ -9,11 +9,11 @@ export default function CelebritiesCards({ profile_featureData }) {
     <>
       <div>
         <div className="flex flex-wrap justify-center items-center -m-2">
-          {Profile_Feature &&
+          {Profile_Feature && Profile_Feature.length > 0 ? (
             Profile_Feature.slice(0, 4).map((profile, i) => {
               return (
                 <Link
-                  href={`/${profile.category.name
+                  href={`/profiles/${profile.category.name
                     .toLowerCase()
                     .replace(/ /g, "-")}=${profile.category.id}/${profile.name
                     .toLowerCase()
@@ -39,7 +39,10 @@ export default function CelebritiesCards({ profile_featureData }) {
                   </div>
                 </Link>
               );
-            })}
+            })
+          ) : (
+            <div>No Data Found</div>
+          )}
         </div>
       </div>
     </>

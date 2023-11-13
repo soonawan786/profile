@@ -14,7 +14,7 @@ export default function ProfileMetadata({
     "@type": "WebPage",
     name: `${titleData}`,
     description: `${metaDescription}`,
-    url: `https://infokidunya.com${currentURL}`,
+    url: `https://almuflihoon.com${currentURL}`,
   };
   return (
     <Head>
@@ -30,8 +30,7 @@ export default function ProfileMetadata({
       <meta
         name="keywords"
         content={
-          "Info Ki Dunya, " +
-          "InfoKiDunya, " +
+          "almuflihoon, " +
           "Bollywood Actors, " +
           "Hollywood Actors, " +
           "Pakistani Actors, " +
@@ -76,12 +75,12 @@ export default function ProfileMetadata({
           keyWords
         }
       />
-      <meta property="og:site_name" content="InfoKiDunya" />
+      <meta property="og:site_name" content="almuflihoon" />
       <meta
         property="og:url"
-        content={"https://infokidunya.com" + currentURL}
+        content={"https://almuflihoon.com" + currentURL}
       />
-      <link rel="canonical" href={"https://infokidunya.com" + currentURL} />
+      <link rel="canonical" href={"https://almuflihoon.com" + currentURL} />
       <meta
         property="og:image"
         content={`https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/ogImage.jpg`}
@@ -89,7 +88,7 @@ export default function ProfileMetadata({
       <meta property="og:type" content="website" />
       <meta property="og:title" content={titleData} />
       <meta property="og:description" content={metaDescription} />
-      <meta name="twitter:site" content="https://infokidunya.com" />
+      <meta name="twitter:site" content="https://almuflihoon.com" />
       <meta
         name="twitter:image"
         content={`https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/ogImage.jpg`}

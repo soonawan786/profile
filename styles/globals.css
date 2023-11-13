@@ -183,23 +183,3 @@ body {
   position: absolute;
   bottom: 3%;
 }
-
-.country-link {
-  text-decoration: none;
-  color: black;
-}
-.country-link span:hover {
-  text-decoration: underline;
-  color: #00899d;
-}
-
-.table-country-link {
-  color: #00899d !important;
-}
-.flags {
-  /* max-width: 10% !important; */
-  /* height: 12px !important; */
-  width: 30px !important;
-  height: 30px !important;
-  display: inline !important;
-}

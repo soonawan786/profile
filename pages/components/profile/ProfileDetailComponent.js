@@ -14,7 +14,11 @@ const ProfileDetailComponent = ({ cardData, profileDetail }) => {
         <div className="max-w-full px-6 py-2 bg-white border border-gray-200 rounded-lg shadow-md">
           <div className="flex flex-col md:flex-row justify-start items-center">
             <div className="w-4/5 flex justify-center">
-              <div dangerouslySetInnerHTML={{ __html: cardData }} />
+              {cardData && Object.keys(cardData).length > 0 ? (
+                <div dangerouslySetInnerHTML={{ __html: cardData }} />
+              ) : (
+                <div> No Data Found </div>
+              )}
             </div>
             <div className="w-full md:w-1/5 flex flex-row justify-center items-center ">
               <Image

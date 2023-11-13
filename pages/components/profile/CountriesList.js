@@ -9,7 +9,7 @@ export default function CountriesList({ countriesData }) {
       <div>
         <div className="h-auto md:h-auto px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-md">
           <div className="my-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-3">
-            {CountriesList &&
+            {CountriesList && CountriesList.length > 0 ? (
               CountriesList.map((country, i) => {
                 return (
                   <Link key={i} className="country-link" href={`#`}>
@@ -19,7 +19,10 @@ export default function CountriesList({ countriesData }) {
                     </div>
                   </Link>
                 );
-              })}
+              })
+            ) : (
+              <div>No Data Found</div>
+            )}
           </div>
         </div>
       </div>

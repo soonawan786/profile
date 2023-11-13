@@ -1,0 +1,175 @@
+.custom-nc {
+  background-color: #00899d;
+  color: white !important;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 14px !important;
+}
+
+.nav-link:hover {
+  background-color: black !important;
+}
+
+.custom-logoset {
+  text-decoration: none !important;
+}
+
+.dropdown-menu {
+  background-color: #00899d !important;
+  padding: 1px !important;
+}
+
+.dropdown-menu > .dropdown-item {
+  background-color: black !important;
+  color: white !important;
+  margin-bottom: 1px !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+}
+
+.testingClasss > .dropdown-menu {
+  position: absolute !important;
+  left: 205px !important;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  /* Styles for mobile devices with width between 300px and 400px */
+  .navbar-toggler {
+    background: white !important;
+  }
+
+  .offcanvas-header {
+    color: white !important;
+  }
+
+  .offcanvas {
+    background-color: #00899d !important;
+  }
+
+  /* .btn-close {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") !important;
+  } */
+}
+
+/* antd header designs */
+.myheader-md {
+  display: flex;
+  background-color: #00899d;
+}
+
+.antd-logo {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.antd-menu-md {
+  width: 80%;
+}
+
+.ant-menu {
+  background-color: #00899d !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.ant-menu-item {
+  color: white !important;
+}
+
+.ant-menu-item-selected {
+  color: white !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after {
+  border-bottom-color: transparent !important;
+}
+
+.ant-menu-title-content > a {
+  text-decoration: none !important;
+}
+
+.ant-menu-light:not(.ant-menu-horizontal) .ant-menu-submenu-title:active,
+.ant-menu-light
+  > .ant-menu:not(.ant-menu-horizontal)
+  .ant-menu-submenu-title:active {
+  background-color: black !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected {
+  background-color: black !important;
+}
+
+.ant-menu-light .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  color: white !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected::after {
+  border-bottom-color: transparent !important;
+}
+
+.ant-menu-light .ant-menu-item-selected,
+.ant-menu-light > .ant-menu .ant-menu-item-selected {
+  background-color: black !important;
+}
+
+.ant-menu-item:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+.ant-menu-submenu-title:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after {
+  border-bottom-color: transparent !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-open {
+  background: black !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu:hover {
+  background: black !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-submenu:hover::after {
+  border-bottom-color: transparent !important;
+}
+
+/* google search css here */
+.g-search-md {
+  width: 400px;
+}
+
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
