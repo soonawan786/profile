@@ -31,9 +31,14 @@ export default function ProfileMetadata({
         name="keywords"
         content={
           "almuflihoon, " +
+          "al muflihoon, " +
+          "al-muflihoon, " +
+          "almuflihun, " +
+          "almuflihoon website, " +
           "Bollywood Actors, " +
           "Hollywood Actors, " +
           "Pakistani Actors, " +
+          "earn money online, " +
           "TV Serial Actors, " +
           "Film Industry Stars, " +
           "Celebrity Performers, " +

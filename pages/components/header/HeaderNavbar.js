@@ -16,14 +16,11 @@ const HeaderNavbar = ({ menuItem }) => {
     <>
       <nav className="border border-gray-200 shadow-md bg-white">
         <div className="logo">
-          <Link href="/">
-            <Image
-              src="https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/logoblack.webp"
-              alt="IDK Logo"
-              unoptimized
-              width={150}
-              height={50}
-            />
+          <Link
+            href="/"
+            className="no-underline text-black text-lg font-extrabold"
+          >
+            Almuflihoon
           </Link>
         </div>
         <div className="mobile-menu-button" onClick={toggleMobileMenu}>
@@ -32,14 +29,11 @@ const HeaderNavbar = ({ menuItem }) => {
         <ul className={`menus ${mobileMenuOpen ? "open" : ""}`}>
           <div className="menu-logo">
             <div className="logo">
-              <Link href="/">
-                <Image
-                  src="https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/logoblack.webp"
-                  alt="IDK Logo"
-                  unoptimized
-                  width={150}
-                  height={50}
-                />
+              <Link
+                href="/"
+                className="no-underline text-black text-lg font-extrabold"
+              >
+                Almuflihoon
               </Link>
             </div>
           </div>

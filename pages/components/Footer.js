@@ -15,18 +15,8 @@ export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [footerPages, setfooterPages] = useState("");
   const pagesName = ["About Us", "Privacy Policy", "Terms & Conditions"];
-  async function getFooterPages() {
-    try {
-      const res = await fetch(`${api_url}/pages/get-pages-slug`);
-      const result = await res.json();
-      setfooterPages(result.data);
-    } catch (error) {
-      error;
-    }
-  }
-  useEffect(() => {
-    getFooterPages();
-  }, []);
+
+  useEffect(() => {}, []);
   // This function will handle the scroll event and determine if the button should be shown
   const handleScroll = () => {
     if (window.pageYOffset > 300) {
@@ -102,20 +92,11 @@ export default function Footer() {
             />
           </div>
           <div className="footer-responsive-280-maindiv">
-            {footerPages && footerPages.length > 0
-              ? footerPages.map((page, i) => {
-                  return (
-                    <div className="footer-responsive-280" key={i}>
-                      <Link
-                        href={`/page/${page.title_slug}`}
-                        className="footer-pages-links"
-                      >
-                        {pagesName[i]}
-                      </Link>
-                    </div>
-                  );
-                })
-              : null}
+            <div className="footer-responsive-280">
+              <Link href={`/privacy.txt`} className="footer-pages-links">
+                {pagesName[1]}
+              </Link>
+            </div>
           </div>
           <div className="copyright">
             ©{" "}
