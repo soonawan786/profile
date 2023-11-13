@@ -1,0 +1,67 @@
+.blogone-bread-flex {
+  display: flex;
+
+  justify-content: center;
+}
+.blogone-arrow-icon svg {
+  margin-top: 0.5em !important;
+}
+.blogone-arrow-icon {
+  background-color: #f0f0f0;
+  padding: 0 0.8em;
+  margin-bottom: 0.4em;
+}
+.blogone-bread-crums {
+  padding-top: 0.3em !important;
+  font-size: 0.9em;
+}
+.blogone-bread-crums a {
+  margin-top: 0.3em !important;
+  color: #171616bc !important;
+  text-decoration: none !important;
+}
+.breadcrumb-item.active {
+  color: black !important;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #969696 !important;
+}
+/* end-breadcrums */
+.prayetimeworld-title {
+  margin-top: 1em !important;
+  text-align: center;
+}
+.prayetimeworld-title h1 {
+  color: #333333;
+}
+.prayetimeworld-form {
+  display: flex;
+  justify-content: center;
+}
+.prayetimeworld-form .form-control {
+  width: 72% !important;
+}
+.prayetimeworld-form .form-control:focus {
+  box-shadow: none !important;
+  border-color: #dddddd !important;
+}
+/* africa */
+.cities-africa h2 {
+  color: #333333;
+}
+.country-link {
+  text-decoration: none;
+  color: black;
+}
+.country-link span:hover {
+  text-decoration: underline;
+  color: #00899d;
+}
+
+.flags {
+  /* max-width: 10% !important; */
+  /* height: 12px !important; */
+  width: 30px !important;
+  height: 30px !important;
+  display: inline !important;
+}
