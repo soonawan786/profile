@@ -31,8 +31,8 @@ export default function App({ Component, pageProps }) {
       "VOH Technologies (SMC-Private) Limited & VOH Technologies LLC",
     slogan: "A World Of Information",
     sameAs: [
-      "https://www.facebook.com/almuflihoon.official",
-      "https://www.instagram.com/almuflihoon/",
+      "https://www.facebook.com/Infokidunya.official",
+      "https://www.instagram.com/infokidunya/",
       // Add more social media profiles
     ],
     contactPoint: {

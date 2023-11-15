@@ -20,16 +20,34 @@ function ProfilesMain({
   countries_data,
 }) {
   const router = useRouter();
+  const currentURL = router.asPath;
   const { category } = router.query;
   const categoryTitle = category.split("=")[0];
+
+  const titleData = `${titleCase(categoryTitle)} | Almuflihoon`;
+  const metaDescription = `Explore the groundbreaking innovations and impactful journeys of ${categoryTitle} at Almuflihoon.`;
+
+  const structuredData = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name: `${titleData}`,
+    description: `${metaDescription}`,
+    url: `https://almuflihoon.com${currentURL}`,
+    sameAs: [
+      "https://www.facebook.com/Infokidunya.official",
+      "https://www.instagram.com/infokidunya/",
+    ],
+  };
+
+  console.log("profiles_cat_data::", profiles_cat_data);
+
   return (
     <>
       <ProfileMetadata
-        titleData={`
-            ${categoryTitle} | Almuflihoon`}
-        metaDescription={`
-            Explore the groundbreaking innovations and impactful journeys of ${categoryTitle} at Almuflihoon.`}
+        title={titleData}
+        metaDescription={metaDescription}
         keyWords={`Famous Personalities of Pakistan, Famous Personalities of World`}
+        structuredData={structuredData}
       />
 
       {(!profiles_cat_data && profiles_cat_data) ||

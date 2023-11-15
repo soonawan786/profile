@@ -10,6 +10,7 @@ import linkedin from "/public/assets/linkedin.png";
 import Link from "next/link";
 import { FaArrowUp } from "react-icons/fa";
 const api_url = process.env.NEXT_PUBLIC_API_URL;
+import { Icon } from "@iconify/react";
 
 export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -38,63 +39,68 @@ export default function Footer() {
         <h1 className="footer-logo-setting">Almuflihoon</h1>
       </div>
 
-      <Container>
-        <div className="copyright-md">
-          <div className="footer-cols-setting">
-            <Image
-              src={facebook}
-              alt="facebook"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons"
-            />
-            <Image
-              src={twitter}
-              alt="twitter"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons twitter-icon"
-            />
-            <Image
-              src={instagram}
-              alt="instagram"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons instagram-icon"
-            />
-
-            <Image
-              src={linkedin}
-              alt="linkedin"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons"
-            />
-            <Image
-              src={youtube}
-              alt="youtube"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons youtube-icon"
-            />
-            <Image
-              src={tiktok}
-              alt="tiktok"
-              width={0}
-              height={0}
-              unoptimized
-              className="social-icons tiktok-icon"
-            />
+      <Container className="p-2 sm:p-0 md:p-0 lg:p-0 xl:p-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-items-center items-center">
+          <div className="d-flex gap-3 flex-wrap justify-center">
+            <div>
+              <Link
+                href="https://www.facebook.com/Infokidunya.official"
+                className="text-black"
+              >
+                <Icon
+                  icon="akar-icons:facebook-fill"
+                  width="25"
+                  height="25"
+                  className="hover:text-[#00899d]"
+                />
+              </Link>
+            </div>
+            <div>
+              <Link
+                href="https://www.instagram.com/infokidunya/"
+                className="text-black"
+              >
+                <Icon
+                  icon="formkit:instagram"
+                  width="25"
+                  height="25"
+                  className="hover:text-[#00899d]"
+                />
+              </Link>
+            </div>
           </div>
-          <div className="footer-responsive-280-maindiv">
-            <div className="footer-responsive-280">
-              <Link href={`/privacy.txt`} className="footer-pages-links">
-                {pagesName[1]}
+          <div className="d-flex gap-3 flex-wrap justify-center">
+            <div>
+              <Link
+                href={`/about-us`}
+                className="no-underline text-black text-sm hover:underline"
+              >
+                <span className="hover:text-[#00899d] hover:underline ">
+                  About Us
+                </span>
+              </Link>
+            </div>
+
+            <div>
+              <Link
+                href={`/privacy-policy`}
+                className="no-underline text-black text-sm "
+              >
+                <span className="hover:text-[#00899d] hover:underline ">
+                  Privacy Policy
+                </span>
+              </Link>
+            </div>
+
+            <div>
+              <Link
+                href={`/terms`}
+                className="no-underline text-black text-sm "
+              >
+                {" "}
+                <span className="hover:text-[#00899d] hover:underline ">
+                  Terms & Conditions
+                </span>
               </Link>
             </div>
           </div>
@@ -107,12 +113,15 @@ export default function Footer() {
               Almuflihoon
             </a>{" "}
             | A project of{" "}
-            <a
+            <Link
               href="https://vohtech.com/"
-              style={{ color: "black", textDecoration: "none" }}
+              className="no-underline text-black text-sm "
             >
-              VOH Technologies
-            </a>
+              <span className="hover:text-[#00899d] hover:underline ">
+                {" "}
+                VOH Technologies
+              </span>
+            </Link>
           </div>
         </div>
         {showBackToTop && (

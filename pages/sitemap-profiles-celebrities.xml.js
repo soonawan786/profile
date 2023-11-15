@@ -13,10 +13,10 @@ function generateSiteMap(posts) {
          return `
        <url>
             <loc>${`${base_url}/profiles/${encodeURIComponent(
-              d.category.name.toLowerCase().replace(/ /g, "-")
-            )}=${encodeURIComponent(d.category.id)}/${encodeURIComponent(
-              d.name.toLowerCase().replace(/ /g, "-")
-            )}=${encodeURIComponent(d.id)}`.replace(/&/g, "&amp;")}</loc>
+              d.category.name.toLowerCase()
+            )}=${d.category.id}/${encodeURIComponent(d.name.toLowerCase())}=${
+              d.id
+            }`}</loc>
 
             <lastmod>${moment().format("YYYY-MM-DD")}</lastmod>
 

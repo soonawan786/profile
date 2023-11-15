@@ -1,33 +1,38 @@
+// components/MetaTags.js
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
 import { titleCase } from "title-case";
 
-export default function ProfileMetadata({
-  title,
-  metaDescription,
-  keyWords,
-  structuredData,
-}) {
-  const defaultTitle = "Almuflihoon";
+const MetaTags = ({ title, description, keywords }) => {
+  const defaultTitle = "Almuflihoon"; // Replace with your default title
   const router = useRouter();
   const currentURL = router.asPath;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}`,
+    description: `${description}`,
+    url: `https://almuflihoon.com${currentURL}`,
+    sameAs: [
+      "https://www.facebook.com/Infokidunya.official",
+      "https://www.instagram.com/infokidunya/",
+      // Add more social media profiles
+    ],
+  };
   return (
     <Head>
       <title>
         {titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
       </title>
-      <meta
-        name="title"
-        content={titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
-      />
-      <meta name="description" content={metaDescription} />
+      <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="1 day" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="googlebot" content="index, follow" />
       <meta name="robots" content="index, follow" />
+
       <meta
         name="keywords"
         content={
@@ -78,7 +83,7 @@ export default function ProfileMetadata({
           "Activists, " +
           "Role Models, " +
           "Inspirational Figures, " +
-          keyWords
+          keywords
         }
       />
       <meta property="og:site_name" content="almuflihoon" />
@@ -96,7 +101,7 @@ export default function ProfileMetadata({
         property="og:title"
         content={titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
       />
-      <meta property="og:description" content={metaDescription} />
+      <meta property="og:description" content={description} />
       <meta name="twitter:site" content="https://almuflihoon.com" />
       <meta
         name="twitter:image"
@@ -111,4 +116,6 @@ export default function ProfileMetadata({
       />
     </Head>
   );
-}
+};
+
+export default MetaTags;

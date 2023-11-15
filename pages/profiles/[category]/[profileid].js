@@ -16,31 +16,80 @@ function ProfilesMain({
   profile_detail,
 }) {
   const router = useRouter();
+  const currentURL = router.asPath;
   const { category, profileid } = router.query;
   const categoryTitle = category.split("=")[0];
   const categoryId = category.split("=")[1];
   const profileName = profileid.split("=")[0];
+
+  const titleData = `
+  ${titleCase(
+    `${(profile_detail && profile_detail.meta_title) || profileName}`
+  )} | Almuflihoon`;
+  const metaDescription = `
+  ${
+    (profile_detail && profile_detail.meta_description) ||
+    `${profileName} is a Famous person. Check out this page to learn more about ${profileName}&#39;s career, age, family, pics biography &amp; more.
+      `
+  } | Almuflihoon`;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: `${(profile_detail && profile_detail.name) || profileName}`,
+    birthDate: `${
+      (profile_detail && profile_detail.dob) || "(will update soon)"
+    }`,
+    birthPlace: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: `${
+          (profile_detail && profile_detail.place_of_birth) ||
+          "(will update soon)"
+        }`,
+        addressCountry: `${
+          (profile_detail && profile_detail.nationality) || "(will update soon)"
+        }`,
+      },
+    },
+    nationality:
+      (profile_detail && profile_detail.nationality) || "(will update soon)",
+    description:
+      (profile_detail && profile_detail.profession) || "(will update soon)",
+
+    height: (profile_detail && profile_detail.height) || "(will update soon)",
+    weight: (profile_detail && profile_detail.weight) || "(will update soon)",
+    religion:
+      (profile_detail && profile_detail.religion) || "(will update soon)",
+    knowsAbout:
+      (profile_detail && profile_detail.profession) || "(will update soon)", // You can customize this based on available data
+    additionalProperty: [
+      {
+        "@type": "PropertyValue",
+        name: "Horoscope",
+        value:
+          (profile_detail && profile_detail.horoscope) || "(will update soon)",
+      },
+    ],
+    url: `https://almuflihoon.com${currentURL}`,
+    sameAs: [
+      "https://www.facebook.com/Infokidunya.official",
+      "https://www.instagram.com/infokidunya/",
+    ],
+    image: (profile_detail && profile_detail.image_url) || null,
+  };
   return (
     <>
       <ProfileMetadata
-        titleData={`
-            ${
-              profile_detail && profile_detail.meta_title === null
-                ? profileName
-                : profile_detail.meta_title
-            } | Almuflihoon`}
-        metaDescription={`
-            ${
-              profile_detail && profile_detail.meta_description === null
-                ? `${profileName} is a Famous person. Check out this page to learn more about ${profileName}&#39;s career, age, family, pics biography &amp; more.
-                `
-                : profile_detail.meta_description
-            } | Almuflihoon`}
+        title={titleData}
+        metaDescription={metaDescription}
         keyWords={
           profile_detail && profile_detail.keywords === null
             ? "(will update soon)"
             : profile_detail.keywords
         }
+        structuredData={structuredData}
       />
       {!profile_detail ||
       (!profiles_cat_data && profiles_cat_data) ||

@@ -8,6 +8,7 @@ import ProfileMetadata from "./components/profile/ProfileMetadata";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CustomBreadcrumbs from "./components/custom-breadcrumbs";
+import { useRouter } from "next/router";
 
 function ProfilesMain({
   cardHead,
@@ -16,18 +17,39 @@ function ProfilesMain({
   profile_feature_data,
   countries_data,
 }) {
+  const router = useRouter();
+  const currentURL = router.asPath;
+  const titleData = `Famous Personalities of Pakistan & World - List of Actors, Anchor, Sports Persons | Almuflihoon`;
+  const metaDescription = `Famous Personalities of Pakistan &amp; World - Find List of Popular Actors, Anchor, Sports Persons with their biographies. | Almuflihoon`;
+
+  const structuredData = {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    name: `${titleData}`,
+    description: `${metaDescription}`,
+    url: `https://almuflihoon.com${currentURL}`,
+    sameAs: [
+      "https://www.facebook.com/Infokidunya.official",
+      "https://www.instagram.com/infokidunya/",
+    ],
+  };
   return (
     <>
       <ProfileMetadata
-        titleData={`
-            Famous Personalities of Pakistan & World - List of Actors, Anchor, Sports Persons | Almuflihoon`}
-        metaDescription={`
-            Famous Personalities of Pakistan &amp; World - Find List of Popular Actors, Anchor, Sports Persons with their biographies. | Almuflihoon`}
+        title={titleData}
+        metaDescription={metaDescription}
         keyWords={`Famous Personalities of Pakistan, Famous Personalities of World`}
+        structuredData={structuredData}
       />
 
-      {(!profiles_cat_data && profiles_cat_data) ||
-      profiles_cat_data.length === 0 ? (
+      {!profiles_cat_data &&
+      profiles_cat_data.length === 0 &&
+      !latest_profile_data &&
+      latest_profile_data.length === 0 &&
+      !profile_feature_data &&
+      profile_feature_data.length === 0 &&
+      !profile_feature_data &&
+      profile_feature_data.length === 0 ? (
         <Container>
           <div>No Data Found</div>
         </Container>
@@ -128,10 +150,10 @@ export async function getServerSideProps() {
     return {
       props: {
         cardHead: {},
-        profiles_cat_data: {},
-        latest_profile_data: {},
-        profile_feature_data: {},
-        countries_data: {},
+        profiles_cat_data: [],
+        latest_profile_data: [],
+        profile_feature_data: [],
+        countries_data: [],
       },
     };
   }
