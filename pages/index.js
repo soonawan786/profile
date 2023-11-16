@@ -18,7 +18,6 @@ function ProfilesMain({
   profile_feature_data,
   countries_data,
 }) {
-  console.log("profiles_cat_data::", profiles_cat_data);
   const router = useRouter();
   const currentURL = router.asPath;
   const titleData = `Famous Personalities of Pakistan & World - List of Actors, Anchor, Sports Persons | Almuflihoon`;
@@ -124,31 +123,32 @@ export async function getServerSideProps() {
       `${process.env.API_URL}/directory/latest-profile`
     );
     const latest_profile_data = latest_profile_res.data.data;
-    // Create an array of URLs
-    const allProfilesURLs = latest_profile_data.map((d) => {
-      return `https://infokidunya.com/profiles/${`${encodeURIComponent(
-        d.category.name.toLowerCase()
-      )}=${d.category.id}`}/${encodeURIComponent(d.name.toLowerCase())}=${
-        d.id
-      }`;
-    });
+    // // Create an array of URLs
+    // const allProfilesURLs = latest_profile_data.map((d) => {
+    //   return `https://infokidunya.com/profiles/${`${encodeURIComponent(
+    //     d.category.name.toLowerCase()
+    //   )}=${d.category.id}`}/${encodeURIComponent(d.name.toLowerCase())}=${
+    //     d.id
+    //   }`;
+    // });
 
-    const postResponse = await fetch(
-      `${process.env.BASE_URL}/api/post-indexing`,
-      {
-        method: "POST", // Corrected method name
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          urls: allProfilesURLs,
-        }),
-      }
-    );
+    // console.log("allProfilesURLs::", allProfilesURLs.length);
+    // const postResponse = await fetch(
+    //   `${process.env.BASE_URL}/api/post-indexing`,
+    //   {
+    //     method: "POST", // Corrected method name
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       urls: allProfilesURLs,
+    //     }),
+    //   }
+    // );
 
-    const postIndexingResponse = await postResponse.json();
+    // const postIndexingResponse = await postResponse.json();
 
-    console.log("postIndexingResponse::", postIndexingResponse);
+    // console.log("postIndexingResponse::", postIndexingResponse);
 
     const profiles_cat_res = await axios.get(
       `${process.env.API_URL}/directory/category-listing`
