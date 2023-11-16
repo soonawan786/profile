@@ -46,8 +46,8 @@ const Terms = () => {
           <li>
             Upload, post, transmit, or distribute any content that is illegal,
             harmful, threatening, abusive, harassing, tortious, defamatory,
-            vulgar, obscene, libelous, invasive of another's privacy, hateful,
-            or racially, ethnically, or otherwise objectionable.
+            vulgar, obscene, libelous, invasive of another&apos;s privacy,
+            hateful, or racially, ethnically, or otherwise objectionable.
           </li>
           <li>
             Upload, post, transmit, or distribute any content that you do not
