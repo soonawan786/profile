@@ -12,6 +12,8 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.17",
+    "@googleapis/indexing": "^2.0.0",
+    "googleapis": "^128.0.0",
     "axios": "^1.6.0",
     "bootstrap": "^5.3.2",
     "html-react-parser": "^5.0.3",
