@@ -101,9 +101,11 @@ const ProfileDetailComponent = ({ cardData, profileDetail }) => {
               <tr>
                 <td className="text-lg font-bold">Country</td>
                 <td>
-                  {ProfileDetail && ProfileDetail.country === null
-                    ? "(will update soon)"
-                    : ProfileDetail.country.name}
+                  {ProfileDetail &&
+                  ProfileDetail.country &&
+                  ProfileDetail.country.name
+                    ? ProfileDetail.country.name
+                    : "will update soon"}
                 </td>
               </tr>
               <tr>
