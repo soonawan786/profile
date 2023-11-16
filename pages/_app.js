@@ -60,24 +60,6 @@ export default function App({ Component, pageProps }) {
               __html: JSON.stringify(structuredData),
             }}
           />
-
-          <script
-            id="script1"
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-KLYS4C3EDK');
-      `,
-            }}
-          ></script>
-          <script
-            id="script2"
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-KLYS4C3EDK"
-          ></script>
         </Head>
         <div className={`bg-[#f8f8fa]`}>
           <HeaderNavbar menuItem={headermenuItems} />
