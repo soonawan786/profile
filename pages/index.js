@@ -18,6 +18,7 @@ function ProfilesMain({
   profile_feature_data,
   countries_data,
 }) {
+  console.log("profiles_cat_data::", profiles_cat_data);
   const router = useRouter();
   const currentURL = router.asPath;
   const titleData = `Famous Personalities of Pakistan & World - List of Actors, Anchor, Sports Persons | Almuflihoon`;
@@ -179,6 +180,7 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
+    console.log("error:", error);
     return {
       props: {
         cardHead: {},

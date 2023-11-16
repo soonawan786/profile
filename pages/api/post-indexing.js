@@ -56,6 +56,7 @@ export default async function handler(req, res) {
     // Wait for all promises to resolve
     const results = await Promise.all(indexingPromises);
 
+    console.log("results:;", results[0].response);
     // Handle the response
     res.status(200).json(results);
   } catch (error) {
