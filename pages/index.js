@@ -118,11 +118,11 @@ export default ProfilesMain;
 
 export async function getServerSideProps() {
   try {
-    //profiles indexing
-    const latest_profile_res = await axios.get(
-      `${process.env.API_URL}/directory/latest-profile`
-    );
-    const latest_profile_data = latest_profile_res.data.data;
+    // //profiles indexing
+    // const latest_profile_res = await axios.get(
+    //   `${process.env.API_URL}/directory/latest-profile`
+    // );
+    // const latest_profile_data = latest_profile_res.data.data;
     // // Create an array of URLs
     // const allProfilesURLs = latest_profile_data.map((d) => {
     //   return `https://infokidunya.com/profiles/${`${encodeURIComponent(
@@ -154,6 +154,11 @@ export async function getServerSideProps() {
       `${process.env.API_URL}/directory/category-listing`
     );
     const profiles_cat_data = profiles_cat_res.data.data;
+
+    const latest_profile_res = await axios.get(
+      `${process.env.API_URL}/directory/latest-profile`
+    );
+    const latest_profile_data = latest_profile_res.data.data;
 
     const profile_feature_res = await axios.get(
       `${process.env.API_URL}/directory/profile-feature`
