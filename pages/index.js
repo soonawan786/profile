@@ -9,6 +9,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CustomBreadcrumbs from "./components/custom-breadcrumbs";
 import { useRouter } from "next/router";
+import { Alert } from "react-bootstrap";
 
 function ProfilesMain({
   cardHead,
@@ -48,10 +49,16 @@ function ProfilesMain({
       latest_profile_data.length === 0 &&
       !profile_feature_data &&
       profile_feature_data.length === 0 &&
-      !profile_feature_data &&
-      profile_feature_data.length === 0 ? (
+      !countries_data &&
+      countries_data.length === 0 ? (
         <Container>
-          <div>No Data Found</div>
+          <>
+            {["warning"].map((variant) => (
+              <Alert key={variant} variant={variant} className="w-full">
+                No Data Found!
+              </Alert>
+            ))}
+          </>
         </Container>
       ) : (
         <>
@@ -71,7 +78,7 @@ function ProfilesMain({
               </Col>
             </Row>
             <div className="flex flex-wrap flex-col md:flex-row -m-4">
-              <div className="p-3 md:w-3/4  w-full">
+              <div className="p-3 lg:w-3/4  w-full">
                 <div className="mt-1">
                   <TitleCard cardData={cardHead} />
                 </div>
@@ -90,16 +97,15 @@ function ProfilesMain({
                   </div>
                   <LatestProfiles latest_profileData={latest_profile_data} />
                 </div>
-
-                <div className="mt-4">
-                  <CountriesList countriesData={countries_data} />
-                </div>
               </div>
-              <div className="p-3 md:w-1/4 w-full">
+              <div className="p-3 lg:w-1/4 w-full">
                 <div className="mt-1">
                   <CelebritiesList profilescatData={profiles_cat_data} />
                 </div>
               </div>
+            </div>
+            <div className="mt-4">
+              <CountriesList countriesData={countries_data} />
             </div>
           </Container>
         </>

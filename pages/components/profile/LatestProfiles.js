@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import AltImage from "@/public/assets/placeholder_infokidunya.webp";
+import { Alert } from "react-bootstrap";
 
 export default function LatestProfiles({ latest_profileData }) {
   const Latest_Profile = latest_profileData ? latest_profileData : [];
@@ -46,7 +47,13 @@ export default function LatestProfiles({ latest_profileData }) {
               );
             })
           ) : (
-            <div>No Data Found</div>
+            <>
+              {["warning"].map((variant) => (
+                <Alert key={variant} variant={variant} className="w-full">
+                  No Data Found!
+                </Alert>
+              ))}
+            </>
           )}
         </div>
 

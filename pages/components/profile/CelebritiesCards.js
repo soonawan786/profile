@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Alert } from "react-bootstrap";
 
 export default function CelebritiesCards({ profile_featureData }) {
   const Profile_Feature = profile_featureData;
@@ -41,7 +42,13 @@ export default function CelebritiesCards({ profile_featureData }) {
               );
             })
           ) : (
-            <div>No Data Found</div>
+            <>
+              {["warning"].map((variant) => (
+                <Alert key={variant} variant={variant} className="w-full">
+                  No Data Found!
+                </Alert>
+              ))}
+            </>
           )}
         </div>
       </div>

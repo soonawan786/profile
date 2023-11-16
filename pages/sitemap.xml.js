@@ -29,6 +29,14 @@ function generateSiteMap() {
         <lastmod>${moment().format("YYYY-MM-DD")}</lastmod>
 
     </sitemap>
+
+    <sitemap>
+
+        <loc>${base_url}/sitemap-profiles-countries.xml</loc>
+
+        <lastmod>${moment().format("YYYY-MM-DD")}</lastmod>
+
+    </sitemap>
   </sitemapindex>
  `;
 }

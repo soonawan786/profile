@@ -13,18 +13,22 @@ import { PATH_INFOKIDUNYA } from "@/utils/paths";
 import { titleCase } from "title-case";
 import { Alert } from "react-bootstrap";
 
-function ProfilesMain({
+const ProfileByCountry = ({
   cardHead,
-  categoryName,
+  countryName,
   profiles_cat_data,
   latest_profile_data,
   countries_data,
-}) {
+}) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  const titleData = `${titleCase(categoryName)} | Almuflihoon`;
-  const metaDescription = `Explore the groundbreaking innovations and impactful journeys of ${categoryName} at Almuflihoon.`;
+  const titleData = `${titleCase(countryName)} Celebrities | Almuflihoon`;
+  const metaDescription = `Explore profiles of famous ${titleCase(
+    countryName
+  )} celebrities. Learn about their careers, ages, families, and more. Almuflihoon provides detailed information about ${titleCase(
+    countryName
+  )} stars.`;
 
   const structuredData = {
     "@context": "http://schema.org",
@@ -37,7 +41,6 @@ function ProfilesMain({
       "https://www.instagram.com/infokidunya/",
     ],
   };
-
   return (
     <>
       <ProfileMetadata
@@ -46,11 +49,8 @@ function ProfilesMain({
         keyWords={`Famous Personalities of Pakistan, Famous Personalities of World`}
         structuredData={structuredData}
       />
-
       {!profiles_cat_data &&
       profiles_cat_data.length === 0 &&
-      !latest_profile_data &&
-      latest_profile_data.length === 0 &&
       !latest_profile_data &&
       latest_profile_data.length === 0 &&
       !countries_data &&
@@ -70,7 +70,7 @@ function ProfilesMain({
             <Row className="mt-4 -mb-10">
               <Col xs={12} sm={12} md={12} lg={12}>
                 <div className="alquran-title">
-                  <h1>{titleCase(categoryName)} Profiles</h1>
+                  <h1>{titleCase(countryName)} Profiles</h1>
                   <CustomBreadcrumbs
                     links={[
                       {
@@ -78,7 +78,7 @@ function ProfilesMain({
                         href: PATH_INFOKIDUNYA.root,
                       },
                       {
-                        name: titleCase(categoryName),
+                        name: titleCase(countryName),
                       },
                     ]}
                   />
@@ -92,7 +92,7 @@ function ProfilesMain({
                 </div>
                 <div className="mt-4">
                   <div className="my-4 text-3xl font-bold ">
-                    Pakistan {categoryName} Profiles
+                    Pakistan {countryName} Profiles
                   </div>
                   <LatestProfiles latest_profileData={latest_profile_data} />
                 </div>
@@ -111,18 +111,15 @@ function ProfilesMain({
       )}
     </>
   );
-}
+};
 
-export default ProfilesMain;
+export default ProfileByCountry;
 
 export async function getServerSideProps({ params }) {
-  const { category } = params;
-  const categoryNameUrl = category.split("=")[0];
-  const categoryName = categoryNameUrl
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-  const categoryId = category.split("=")[1];
+  const { country } = params;
+  const countryId = country.split("=")[1];
+
+  const countryName = country.split("=")[0];
   try {
     const profiles_cat_res = await axios.get(
       `${process.env.API_URL}/directory/category-listing`
@@ -130,7 +127,7 @@ export async function getServerSideProps({ params }) {
     const profiles_cat_data = profiles_cat_res.data.data;
 
     const latest_profile_res = await axios.get(
-      `${process.env.API_URL}/directory/profile-by-category?category_id=${categoryId}`
+      `${process.env.API_URL}/directory/latest-profile?country_id=${countryId}`
     );
     const latest_profile_data = latest_profile_res.data.data;
 
@@ -140,14 +137,19 @@ export async function getServerSideProps({ params }) {
     const countries_data = countries_res.data;
 
     const cardHead = `
-        <h1 style="font-size:24px; font-weight: bold">Pakistan ${categoryName}</h1>
-        <div style="font-size:16px">View profiles of ${categoryName} from Pakistan and other countries. Famous ${categoryName} have a large fan following. However, their fans are always curious about their lifestyle and want to get all possible information about them. At this portal, you can view all key details about your favorite stars. You can view details about their date of birth, age and education.</div>
-      `;
+    <h1 style="font-size:24px; font-weight: bold">${titleCase(
+      countryName
+    )} Celebrities </h1>
+    <div style="font-size:16px">Explore profiles of famous ${titleCase(
+      countryName
+    )} celebrities. Learn about their careers, ages, families, and more. Almuflihoon provides detailed information about ${titleCase(
+      countryName
+    )} stars.</div>`;
 
     return {
       props: {
         cardHead,
-        categoryName,
+        countryName,
         profiles_cat_data,
         latest_profile_data,
         countries_data,
@@ -157,7 +159,7 @@ export async function getServerSideProps({ params }) {
     return {
       props: {
         cardHead: {},
-        categoryName: {},
+        countryName: {},
         profiles_cat_data: [],
         latest_profile_data: [],
         countries_data: [],

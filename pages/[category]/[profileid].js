@@ -4,6 +4,7 @@ import axios from "axios";
 import ProfileTitleCard from "@/pages/components/profile/ProfileDetailComponent";
 import YouMayAlsoLike from "@/pages/components/profile/YouMayAlsoLike";
 import ProfileMetadata from "@/pages/components/profile/ProfileMetadata";
+import { Alert } from "react-bootstrap";
 
 function ProfilesMain({
   cardHead,
@@ -17,7 +18,13 @@ function ProfilesMain({
       (!profiles_cat_data && profiles_cat_data) ||
       profiles_cat_data.length === 0 ? (
         <Container>
-          <div>No Data Found</div>
+          <>
+            {["warning"].map((variant) => (
+              <Alert key={variant} variant={variant} className="w-full">
+                No Data Found!
+              </Alert>
+            ))}
+          </>
         </Container>
       ) : (
         <>

@@ -5,6 +5,7 @@ import ProfileDisclaimer from "./ProfileDisclaimer";
 import AltImage from "@/public/assets/placeholder_infokidunya.webp";
 
 import parse from "html-react-parser";
+import { Alert } from "react-bootstrap";
 
 const ProfileDetailComponent = ({ cardData, profileDetail }) => {
   const ProfileDetail = profileDetail ? profileDetail : "N/A";
@@ -17,7 +18,13 @@ const ProfileDetailComponent = ({ cardData, profileDetail }) => {
               {cardData && Object.keys(cardData).length > 0 ? (
                 <div dangerouslySetInnerHTML={{ __html: cardData }} />
               ) : (
-                <div> No Data Found </div>
+                <>
+                  {["warning"].map((variant) => (
+                    <Alert key={variant} variant={variant} className="w-full">
+                      No Data Found!
+                    </Alert>
+                  ))}
+                </>
               )}
             </div>
             <div className="w-full md:w-1/5 flex flex-row justify-center items-center ">
@@ -30,7 +37,7 @@ const ProfileDetailComponent = ({ cardData, profileDetail }) => {
                     ? ProfileDetail.name
                     : "Profile Image"
                 }
-                className="w-72 h-72 md:mt-0 md:w-56 md:h-56 rounded"
+                className="w-72 h-72 md:mt-0 md:w-56 md:h-56 rounded object-cover"
                 width={0}
                 height={0}
                 unoptimized

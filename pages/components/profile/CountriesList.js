@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import WorldFlag from "react-world-flags";
+import { Alert } from "react-bootstrap";
 
 export default function CountriesList({ countriesData }) {
   const CountriesList = countriesData;
@@ -12,7 +13,13 @@ export default function CountriesList({ countriesData }) {
             {CountriesList && CountriesList.length > 0 ? (
               CountriesList.map((country, i) => {
                 return (
-                  <Link key={i} className="country-link" href={`#`}>
+                  <Link
+                    key={i}
+                    className="country-link"
+                    href={`/profiles/country/${encodeURIComponent(
+                      country.name.toLowerCase()
+                    )}=${country.id}`}
+                  >
                     <div className="flex justify-start items-center">
                       <WorldFlag className="flags" code={country.iso3} />{" "}
                       <span className="ml-3">{country.name}</span>
@@ -21,7 +28,13 @@ export default function CountriesList({ countriesData }) {
                 );
               })
             ) : (
-              <div>No Data Found</div>
+              <>
+                {["warning"].map((variant) => (
+                  <Alert key={variant} variant={variant} className="w-full">
+                    No Data Found!
+                  </Alert>
+                ))}
+              </>
             )}
           </div>
         </div>

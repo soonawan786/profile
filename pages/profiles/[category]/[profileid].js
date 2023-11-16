@@ -8,13 +8,9 @@ import { useRouter } from "next/router";
 import CustomBreadcrumbs from "@/pages/components/custom-breadcrumbs/CustomBreadcrumbs";
 import { PATH_INFOKIDUNYA } from "@/utils/paths";
 import { titleCase } from "title-case";
+import { Alert } from "react-bootstrap";
 
-function ProfilesMain({
-  cardHead,
-  profiles_cat_data,
-  profile_feature_data,
-  profile_detail,
-}) {
+function ProfilesMain({ cardHead, profile_feature_data, profile_detail }) {
   const router = useRouter();
   const currentURL = router.asPath;
   const { category, profileid } = router.query;
@@ -91,11 +87,17 @@ function ProfilesMain({
         }
         structuredData={structuredData}
       />
-      {!profile_detail ||
-      (!profiles_cat_data && profiles_cat_data) ||
-      profiles_cat_data.length === 0 ? (
+      {!profile_detail &&
+      !profile_feature_data &&
+      profile_feature_data.length === 0 ? (
         <Container>
-          <div>No Data Found</div>
+          <>
+            {["warning"].map((variant) => (
+              <Alert key={variant} variant={variant} className="w-full">
+                No Data Found!
+              </Alert>
+            ))}
+          </>
         </Container>
       ) : (
         <>
@@ -103,7 +105,7 @@ function ProfilesMain({
             <Row className="mt-4 -mb-10">
               <Col xs={12} sm={12} md={12} lg={12}>
                 <div className="alquran-title">
-                  <h1>Profiles</h1>
+                  <h1>{titleCase(profileName)}</h1>
                   <CustomBreadcrumbs
                     links={[
                       {
@@ -173,7 +175,6 @@ export async function getServerSideProps({ params }) {
     return {
       props: {
         cardHead,
-        profiles_cat_data,
         profile_feature_data,
         profile_detail,
       },
@@ -182,7 +183,6 @@ export async function getServerSideProps({ params }) {
     return {
       props: {
         cardHead: {},
-        profiles_cat_data: {},
         profile_feature_data: {},
         profile_detail: {},
       },

@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Alert } from "react-bootstrap";
 
 export default function CelebritiesList({ profilescatData }) {
   const categories = profilescatData;
@@ -40,12 +41,12 @@ export default function CelebritiesList({ profilescatData }) {
     <>
       <div className="h-auto md:h-auto px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-md">
         <h3 className="px-2 text-2xl font-bold tracking-tight text-gray-900">
-          Pakistani Celebrities
+          Categories
         </h3>
 
         <input
           type="text"
-          placeholder="Search Celebrities"
+          placeholder="Search by category"
           value={searchQuery}
           onChange={handleSearchInputChange}
           className="mb-1 px-2 py-1 w-full border border-gray-300 rounded focus:outline-[#00899d] "
@@ -64,7 +65,13 @@ export default function CelebritiesList({ profilescatData }) {
               </Link>
             ))
           ) : (
-            <div>No Data Found</div>
+            <>
+              {["warning"].map((variant) => (
+                <Alert key={variant} variant={variant} className="w-full">
+                  No Data Found!
+                </Alert>
+              ))}
+            </>
           )}
         </div>
 
