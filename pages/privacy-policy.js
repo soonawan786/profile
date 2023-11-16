@@ -16,9 +16,9 @@ const PrivacyPolicy = () => {
           <h1>Privacy Policy</h1>
 
           <p>
-            Welcome to the Almuflihoon. This Privacy Policy ("Policy") describes
-            how we collect, use, and disclose your personal information when you
-            use our Platform.
+            Welcome to the Almuflihoon. This Privacy Policy (&quot;Policy&quot;)
+            describes how we collect, use, and disclose your personal
+            information when you use our Platform.
           </p>
 
           <h2>Information We Collect</h2>

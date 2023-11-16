@@ -32,8 +32,9 @@ const AboutUs = () => {
           Almuflihoon features a vast collection of profiles, offering insights
           into the lives and accomplishments of renowned figures across various
           fields, including entertainment, sports, politics, music, and more.
-          Whether you're interested in historical icons, contemporary stars, or
-          emerging talents, we strive to cover a diverse range of personalities.
+          Whether you&apos;re interested in historical icons, contemporary
+          stars, or emerging talents, we strive to cover a diverse range of
+          personalities.
         </p>
 
         <h2>Why Choose Almuflihoon?</h2>
@@ -55,8 +56,8 @@ const AboutUs = () => {
         <h2>Contact Us</h2>
 
         <p>
-          Have questions, suggestions, or feedback? We'd love to hear from you!
-          Reach out to us at{" "}
+          Have questions, suggestions, or feedback? We&apos;d love to hear from
+          you! Reach out to us at{" "}
           <a href="mailto:info@almuflihoon.com">info@almuflihoon.com</a>.
         </p>
       </Container>

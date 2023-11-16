@@ -16,8 +16,8 @@ const Terms = () => {
         <h1>Terms and Conditions - Almuflihoon</h1>
 
         <p>
-          Welcome to the Almuflihoon. These Terms and Conditions ("Terms")
-          govern your use of our Platform.
+          Welcome to the Almuflihoon. These Terms and Conditions
+          (&quot;Terms&quot;) govern your use of our Platform.
         </p>
 
         <h2>1. Acceptance of Terms</h2>
