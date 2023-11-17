@@ -118,47 +118,54 @@ export default ProfilesMain;
 
 export async function getServerSideProps() {
   try {
-    //profiles indexing
-    const latest_profile_res = await axios.get(
-      `${process.env.API_URL}/directory/latest-profile`
-    );
-    const latest_profile_data = latest_profile_res.data.data;
-    // Create an array of URLs
-    const allProfilesURLs = latest_profile_data.map((d) => {
-      return `https://almuflihoon.com/profiles/${`${encodeURIComponent(
-        d.category.name.toLowerCase()
-      )}=${d.category.id}`}/${encodeURIComponent(d.name.toLowerCase())}=${
-        d.id
-      }`;
-    });
+    // //profiles indexing
+    // const latest_profile_res = await axios.get(
+    //   `${process.env.API_URL}/directory/latest-profile`
+    // );
+    // const latest_profile_data = latest_profile_res.data.data;
+    // // Create an array of URLs
+    // const allProfilesURLs = latest_profile_data.map((d) => {
+    //   return `https://almuflihoon.com/profiles/${`${encodeURIComponent(
+    //     d.category.name.toLowerCase()
+    //   )}=${d.category.id}`}/${encodeURIComponent(d.name.toLowerCase())}=${
+    //     d.id
+    //   }`;
+    // });
 
-    console.log("allProfilesURLs::", allProfilesURLs.length);
-    const postResponse = await fetch(
-      `${process.env.BASE_URL}/api/post-indexing`,
-      {
-        method: "POST", // Corrected method name
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          urls: allProfilesURLs,
-        }),
-      }
-    );
+    // console.log("allProfilesURLs::", allProfilesURLs.length);
+    // const postResponse = await fetch(
+    //   `${process.env.BASE_URL}/api/post-indexing`,
+    //   {
+    //     method: "POST", // Corrected method name
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       urls: allProfilesURLs,
+    //     }),
+    //   }
+    // );
 
-    const postIndexingResponse = await postResponse.json();
+    // const postIndexingResponse = await postResponse.json();
 
-    console.log("postIndexingResponse::", postIndexingResponse);
+    // console.log("postIndexingResponse::", postIndexingResponse);
+
+    const response = await fetch(
+      `${process.env.BASE_URL}/api/single-post-indexing`
+    ); // Adjust the URL as needed
+    const responseBody = await response.json();
+
+    console.log("responseBody::", responseBody);
 
     const profiles_cat_res = await axios.get(
       `${process.env.API_URL}/directory/category-listing`
     );
     const profiles_cat_data = profiles_cat_res.data.data;
 
-    // const latest_profile_res = await axios.get(
-    //   `${process.env.API_URL}/directory/latest-profile`
-    // );
-    // const latest_profile_data = latest_profile_res.data.data;
+    const latest_profile_res = await axios.get(
+      `${process.env.API_URL}/directory/latest-profile`
+    );
+    const latest_profile_data = latest_profile_res.data.data;
 
     const profile_feature_res = await axios.get(
       `${process.env.API_URL}/directory/profile-feature`
@@ -185,7 +192,7 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.log("error:", error);
+    console.log("error:::", error);
     return {
       props: {
         cardHead: {},
