@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
     const responseBody = await response.json();
 
-    console.log("responseBody::", responseBody, responseBody.details);
+    console.log("responseBody::", responseBody, responseBody.error.details);
     // Handle the response
     res.status(response.status).json(responseBody);
   } catch (error) {
