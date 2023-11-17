@@ -155,7 +155,7 @@ export async function getServerSideProps() {
     ); // Adjust the URL as needed
     const responseBody = await response.json();
 
-    console.log("responseBody::", responseBody);
+    console.log("response::", responseBody);
 
     const profiles_cat_res = await axios.get(
       `${process.env.API_URL}/directory/category-listing`
