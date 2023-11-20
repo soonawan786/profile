@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${tokens.access_token}`,
       },
       body: JSON.stringify({
-        url: "https://almuflihoon.com/profiles/sports-players-and-athletes=3/babar-azam=141",
+        url: req.body.url,
         type: "URL_UPDATED",
       }),
     };
@@ -41,11 +41,10 @@ export default async function handler(req, res) {
 
     const responseBody = await response.json();
 
-    console.log("responseBody::", responseBody, responseBody.error.details);
     // Handle the response
     res.status(response.status).json(responseBody);
   } catch (error) {
-    console.error("error arha hy :", error);
+    console.error("Error in single posting:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }

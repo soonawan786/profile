@@ -1,4 +1,3 @@
-// pages/api/post-indexing.js
 import { google } from "googleapis";
 import { readFileSync } from "fs";
 import { resolve } from "path";
@@ -26,40 +25,35 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid or empty array of URLs" });
     }
 
-    // Build an array of promises for each URL
-    const indexingPromises = urls.slice(0, 50).map(async (url) => {
-      const options = {
-        url: "https://indexing.googleapis.com/v3/urlNotifications:publish",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${tokens.access_token}`,
-        },
-        body: JSON.stringify({
-          url,
-          type: "URL_UPDATED",
-        }),
-      };
+    const baseUrl =
+      "https://indexing.googleapis.com/v3/urlNotifications/metadata";
 
-      // Use fetch instead of the request library
-      const response = await fetch(options.url, {
-        method: options.method,
-        headers: options.headers,
-        body: options.body,
-      });
+    const indexingPromises = urls.map(async (url) => {
+      try {
+        const encodedUrl = encodeURIComponent(url);
+        const response = await fetch(`${baseUrl}?url=${encodedUrl}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${tokens.access_token}`,
+          },
+        });
 
-      const responseBody = await response.json();
-
-      console.log("results:", responseBody);
-      return { url, response: responseBody };
+        const responseBody = await response.json();
+        return { url, response: responseBody };
+      } catch (error) {
+        console.error(`Error checking ${url}:`, error);
+        return { url, response: { error: "Check failed" } };
+      }
     });
 
     // Wait for all promises to resolve
     const results = await Promise.all(indexingPromises);
-    // Handle the response
+
+    // Handle the response based on your requirements
     res.status(200).json(results);
   } catch (error) {
-    console.error("error arha hy :", error);
+    console.error("Internal Server Error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
