@@ -11,7 +11,7 @@ const MetaTags = ({ title, description, keywords }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `${titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}`,
+    name: `${titleCase(title ? `${title}` : defaultTitle)}`,
     description: `${description}`,
     url: `https://almuflihoon.com${currentURL}`,
     sameAs: [
@@ -22,9 +22,7 @@ const MetaTags = ({ title, description, keywords }) => {
   };
   return (
     <Head>
-      <title>
-        {titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
-      </title>
+      <title>{titleCase(title ? `${title}` : defaultTitle)}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="language" content="English" />
@@ -99,7 +97,7 @@ const MetaTags = ({ title, description, keywords }) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content={titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
+        content={titleCase(title ? `${title}` : defaultTitle)}
       />
       <meta property="og:description" content={description} />
       <meta name="twitter:site" content="https://almuflihoon.com" />

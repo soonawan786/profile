@@ -14,12 +14,10 @@ export default function ProfileMetadata({
   const currentURL = router.asPath;
   return (
     <Head>
-      <title>
-        {titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
-      </title>
+      <title>{titleCase(title ? `${title}` : defaultTitle)}</title>
       <meta
         name="title"
-        content={titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
+        content={titleCase(title ? `${title}` : defaultTitle)}
       />
       <meta name="description" content={metaDescription} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -94,7 +92,7 @@ export default function ProfileMetadata({
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content={titleCase(title ? `${title} | ${defaultTitle}` : defaultTitle)}
+        content={titleCase(title ? `${title}` : defaultTitle)}
       />
       <meta property="og:description" content={metaDescription} />
       <meta name="twitter:site" content="https://almuflihoon.com" />
