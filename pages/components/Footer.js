@@ -1,23 +1,12 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import facebook from "/public/assets/facebook.png";
-import youtube from "/public/assets/youtube.png";
-import twitter from "/public/assets/twitter.png";
-import instagram from "/public/assets/instagram.png";
-import tiktok from "/public/assets/tiktok.png";
-import linkedin from "/public/assets/linkedin.png";
+import { Container } from "react-bootstrap";
 import Link from "next/link";
 import { FaArrowUp } from "react-icons/fa";
-const api_url = process.env.NEXT_PUBLIC_API_URL;
 import { Icon } from "@iconify/react";
 
 export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [footerPages, setfooterPages] = useState("");
-  const pagesName = ["About Us", "Privacy Policy", "Terms & Conditions"];
 
-  useEffect(() => {}, []);
   // This function will handle the scroll event and determine if the button should be shown
   const handleScroll = () => {
     if (window.pageYOffset > 300) {
@@ -33,6 +22,7 @@ export default function Footer() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <div className="mt-3 footer-ssmd">
       <div className="f-set-md">
@@ -69,6 +59,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+
           <div className="d-flex gap-3 flex-wrap justify-center">
             <div>
               <Link
@@ -104,6 +95,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+
           <div className="copyright">
             ©{" "}
             <a

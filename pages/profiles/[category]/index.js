@@ -92,7 +92,7 @@ function ProfilesMain({
                 </div>
                 <div className="mt-4">
                   <div className="my-4 text-3xl font-bold ">
-                    Pakistan {categoryName} Profiles
+                    {titleCase(categoryName)} Profiles
                   </div>
                   <LatestProfiles latest_profileData={latest_profile_data} />
                 </div>

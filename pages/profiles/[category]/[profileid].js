@@ -56,8 +56,6 @@ function ProfilesMain({ cardHead, profile_feature_data, profile_detail }) {
 
     height: (profile_detail && profile_detail.height) || "(will update soon)",
     weight: (profile_detail && profile_detail.weight) || "(will update soon)",
-    religion:
-      (profile_detail && profile_detail.religion) || "(will update soon)",
     knowsAbout:
       (profile_detail && profile_detail.profession) || "(will update soon)", // You can customize this based on available data
     additionalProperty: [
@@ -152,11 +150,6 @@ export async function getServerSideProps({ params }) {
   const { profileid } = params;
   const profileId = profileid.split("=")[1];
   try {
-    const profiles_cat_res = await axios.get(
-      `${process.env.API_URL}/directory/category-listing`
-    );
-    const profiles_cat_data = profiles_cat_res.data.data;
-
     const profile_feature_res = await axios.get(
       `${process.env.API_URL}/directory/latest-profile`
     );
