@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
     "@type": "Organization",
     name: "Almuflihoon",
     alternateName: "amh",
-    logo: "https://infokidunya.com/_next/static/media/ikdnewlogo.337edd4c.webp",
+    logo: "https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/Almuflihoon.webp",
     description:
       "Almuflihoon - Explore inspiring biographies of influential figures at Almuflihoon, your go-to source for captivating stories that have shaped our world.",
     url: "https://almuflihoon.com",
@@ -77,6 +77,11 @@ export default function App({ Component, pageProps }) {
             id="script2"
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-KLYS4C3EDK"
+          ></script>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1558863166168778"
+            crossorigin="anonymous"
           ></script>
         </Head>
         <div className={`bg-[#f8f8fa]`}>

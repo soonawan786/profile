@@ -20,7 +20,13 @@ const HeaderNavbar = ({ menuItem }) => {
             href="/"
             className="no-underline text-black text-lg font-extrabold"
           >
-            Almuflihoon
+            <Image
+              src="https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/Almuflihoon.webp"
+              alt="Almuflihoon Logo"
+              unoptimized
+              width={100}
+              height={50}
+            />
           </Link>
         </div>
         <div className="mobile-menu-button" onClick={toggleMobileMenu}>
@@ -33,7 +39,13 @@ const HeaderNavbar = ({ menuItem }) => {
                 href="/"
                 className="no-underline text-black text-lg font-extrabold"
               >
-                Almuflihoon
+                <Image
+                  src="https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/Almuflihoon.webp"
+                  alt="Almuflihoon Logo"
+                  unoptimized
+                  width={100}
+                  height={50}
+                />
               </Link>
             </div>
           </div>
