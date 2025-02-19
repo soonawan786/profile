@@ -1,7 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://almuflihoon.com/sitemap.xml
-Sitemap: https://almuflihoon.com/sitemap-manual.xml
-Sitemap: https://almuflihoon.com/sitemap-profiles-categories-celebrities.xml
-Sitemap: https://almuflihoon.com/sitemap-profiles-celebrities.xml
-Sitemap: https://almuflihoon.com/sitemap-profiles-countries.xml
