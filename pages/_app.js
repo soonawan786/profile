@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   const structuredData = {
     "@context": "http://schema.org",
     "@type": "Organization",
-    name: "Almuflihoon",
+    name: "Profile",
     alternateName: "amh",
     logo: "https://pub-7564e1ce46b04eb49d76ed31d1ab3299.r2.dev/uploads/Almuflihoon.webp",
     description:
@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "info@almuflihoon.com",
+      email: "info@vohtech.com",
       contactType: "Customer support",
     },
   };
