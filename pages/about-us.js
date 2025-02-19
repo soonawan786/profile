@@ -8,14 +8,14 @@ const AboutUs = () => {
     <>
       <MetaTags
         title="About Us"
-        description="Discover the mission of Almuflihoon - your go-to platform for information about famous personalities worldwide."
-        keywords="About Us, Almuflihoon, Famous Personalities, Biography, Celebrities"
+        description="Discover the mission of Profiles - your go-to platform for information about famous personalities worldwide."
+        keywords="About Us, profile, Famous Personalities, Biography, Celebrities"
       />
       <Container className="py-4">
         <h1>About Us</h1>
 
         <p>
-          Welcome to Almuflihoon, your ultimate destination for discovering
+          Welcome to Profiles, your ultimate destination for discovering
           information about famous personalities from around the world.
         </p>
 
@@ -29,7 +29,7 @@ const AboutUs = () => {
         <h2>What We Offer</h2>
 
         <p>
-          Almuflihoon features a vast collection of profiles, offering insights
+          Profiles features a vast collection of profiles, offering insights
           into the lives and accomplishments of renowned figures across various
           fields, including entertainment, sports, politics, music, and more.
           Whether you&apos;re interested in historical icons, contemporary
@@ -37,10 +37,10 @@ const AboutUs = () => {
           personalities.
         </p>
 
-        <h2>Why Choose Almuflihoon?</h2>
+        <h2>Why Choose Profiles?</h2>
 
         <p>
-          At Almuflihoon, we understand the curiosity and admiration people have
+          At Profiles, we understand the curiosity and admiration people have
           for those who have made a significant impact on society. Our platform
           aims to satiate this curiosity by providing accurate and engaging
           content that showcases the journeys, contributions, and anecdotes of
@@ -58,7 +58,7 @@ const AboutUs = () => {
         <p>
           Have questions, suggestions, or feedback? We&apos;d love to hear from
           you! Reach out to us at{" "}
-          <a href="mailto:info@almuflihoon.com">info@almuflihoon.com</a>.
+          <a href="mailto:info@vohtech.com">info@vohtech.com</a>.
         </p>
       </Container>
     </>
