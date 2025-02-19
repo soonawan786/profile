@@ -127,48 +127,48 @@ export async function getServerSideProps() {
     if (latest_profile_data && latest_profile_data.length > 0) {
       // Create an array of URLs
       const allProfileURLs = latest_profile_data.map((post) => {
-        return `https://almuflihoon.com/profiles/${encodeURIComponent(
+        return `${process.env.BASE_URL}/profiles/${encodeURIComponent(
           post.category.name.toLowerCase()
         )}=${post.category.id}/${encodeURIComponent(post.name.toLowerCase())}=${
           post.id
         }`;
       });
 
-      // Make a request to your get-indexing API endpoint
-      const getIndexingResponse = await axios.post(
-        `${process.env.BASE_URL}/api/get-indexing`,
-        { urls: allProfileURLs }
-      );
+      // // Make a request to your get-indexing API endpoint
+      // const getIndexingResponse = await axios.post(
+      //   `${process.env.BASE_URL}/api/get-indexing`,
+      //   { urls: allProfileURLs }
+      // );
 
-      const indexingResults = getIndexingResponse.data;
+      // const indexingResults = getIndexingResponse.data;
 
-      // Assuming 'indexingResults' is the array of indexing results
-      const failedIndexingResults = indexingResults.filter(
-        (result) => result.response.error
-      );
+      // // Assuming 'indexingResults' is the array of indexing results
+      // const failedIndexingResults = indexingResults.filter(
+      //   (result) => result.response.error
+      // );
 
-      // Extracting URLs from failed indexing results
-      const failedURLs = failedIndexingResults.map((result) => result.url);
+      // // Extracting URLs from failed indexing results
+      // const failedURLs = failedIndexingResults.map((result) => result.url);
 
-      console.log("Failed URLs::", failedURLs, failedURLs.length);
-      if (failedURLs && failedURLs.length > 0) {
-        const postResponse = await fetch(
-          `${process.env.BASE_URL}/api/post-indexing`,
-          {
-            method: "POST", // Corrected method name
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              urls: failedURLs,
-            }),
-          }
-        );
+      // console.log("Failed URLs::", failedURLs, failedURLs.length);
+      // if (failedURLs && failedURLs.length > 0) {
+      //   const postResponse = await fetch(
+      //     `${process.env.BASE_URL}/api/post-indexing`,
+      //     {
+      //       method: "POST", // Corrected method name
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({
+      //         urls: failedURLs,
+      //       }),
+      //     }
+      //   );
 
-        const postIndexingResponse = await postResponse.json();
+      //   const postIndexingResponse = await postResponse.json();
 
-        console.log("postIndexingResponse::", postIndexingResponse);
-      }
+      //   console.log("postIndexingResponse::", postIndexingResponse);
+      // }
     }
 
     const profiles_cat_res = await axios.get(
