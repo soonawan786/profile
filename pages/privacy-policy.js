@@ -8,15 +8,15 @@ const PrivacyPolicy = () => {
       {" "}
       <MetaTags
         title="Privacy Policy"
-        description="Learn how we collect, use, and disclose your personal information on Almuflihoon platform."
-        keywords="Privacy Policy, Almuflihoon, Personal Information"
+        description="Learn how we collect, use, and disclose your personal information on Profile platform."
+        keywords="Privacy Policy, Profile, Personal Information"
       />
       <Container className="p-10">
-        <div>
+        <div
           <h1>Privacy Policy</h1>
 
           <p>
-            Welcome to the Almuflihoon. This Privacy Policy (&quot;Policy&quot;)
+            Welcome to the Profile. This Privacy Policy (&quot;Policy&quot;)
             describes how we collect, use, and disclose your personal
             information when you use our Platform.
           </p>
@@ -132,12 +132,12 @@ const PrivacyPolicy = () => {
             If you have any questions about this Policy, please contact us at:
           </p>
           <p>
-            Almuflihoon
+            Profile
             <br />
-            info@infokidunya.com
+            info@vohtech.com
           </p>
 
-          <p>Effective Date: November 12, 2023</p>
+          <p>Effective Date: February 2, 2025</p>
         </div>
       </Container>
     </>
